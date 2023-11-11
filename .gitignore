@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Sources/Alza_WebAPI/obj
+/Sources/Alza_WebAPI/bin
+/Tests/Alza_WebAPI_UnitTests/obj
+/Tests/Alza_WebAPI_UnitTests/bin
+/desktop.ini
