@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI", "Sources\Alza_WebAPI\Alza_WebAPI.csproj", "{D6DA0153-79C5-425F-8174-E3AA3220946F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alza_WebAPI", "Sources\Alza_WebAPI\Alza_WebAPI.csproj", "{D6DA0153-79C5-425F-8174-E3AA3220946F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI_UnitTests", "Tests\Alza_WebAPI_UnitTests\Alza_WebAPI_UnitTests.csproj", "{C5D3CE95-1C8F-4221-8FD3-B608559D2FDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alza_WebAPI_UnitTests", "Tests\Alza_WebAPI_UnitTests\Alza_WebAPI_UnitTests.csproj", "{C5D3CE95-1C8F-4221-8FD3-B608559D2FDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{395CF06D-79D5-401F-B5EC-2F2A9750AF41}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI_Database", "Sources\Alza_WebAPI_Database\Alza_WebAPI_Database.csproj", "{47E2D4F5-9012-428B-9548-1A8E29963ED7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{C5D3CE95-1C8F-4221-8FD3-B608559D2FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5D3CE95-1C8F-4221-8FD3-B608559D2FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5D3CE95-1C8F-4221-8FD3-B608559D2FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E2D4F5-9012-428B-9548-1A8E29963ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E2D4F5-9012-428B-9548-1A8E29963ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E2D4F5-9012-428B-9548-1A8E29963ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E2D4F5-9012-428B-9548-1A8E29963ED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
