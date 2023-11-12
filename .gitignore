@@ -10,3 +10,5 @@
 /desktop.ini
 /Sources/Alza_WebAPI_Database/bin
 /Sources/Alza_WebAPI_Database/obj
+/Tests/Alza_WebAPI_InMemoryDatabase/obj
+/Tests/Alza_WebAPI_InMemoryDatabase/bin

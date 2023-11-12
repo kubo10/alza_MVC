@@ -1,23 +1,31 @@
-﻿using Alza_WebAPI_Database.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Diagnostics.SymbolStore;
+﻿using Alza_WebAPI_Database;
+using Alza_WebAPI_Database.Models;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Alza_WebAPI_Database
+namespace Alza_WebAPI_InMemoryDatabase.DatabaseSeed
 {
-    public class AlzaContext : DbContext
+    public class ProductSeed
     {
-        public AlzaContext()
+        private AlzaContext DbContext { get; set; } = default!;
+
+        public ProductSeed(AlzaContext dbcontext)
         {
+            DbContext = dbcontext;
         }
-        public AlzaContext(DbContextOptions<AlzaContext> options) : base(options) { }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+        public async Task SeedDatabase()
         {
-            modelBuilder.Entity<Product>().HasData(
+            DbContext.AddRange(new[]
+            {
                 new Product
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Some pretty nice flowers",
+                    Name = "Some nice flowers",
                     ImgUri = "https://cdn.firstcry.com/education/2022/12/12101916/Flower-Names-In-English-For-Kids.jpg",
                     Price = 10002.22M,
                     Description = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque ipsum.
@@ -25,9 +33,9 @@ namespace Alza_WebAPI_Database
                                     consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam 
                                     quaerat voluptatem. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Nullam eget nisl. Cras elementum. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor"
                 }
-            );
-        }
+            });
 
-        public DbSet<Product> Products { get; set; }
+            await DbContext.SaveChangesAsync().ConfigureAwait(false);
+        }
     }
 }
