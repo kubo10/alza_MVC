@@ -12,7 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI_Database", "Sources\Alza_WebAPI_Database\Alza_WebAPI_Database.csproj", "{47E2D4F5-9012-428B-9548-1A8E29963ED7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alza_WebAPI_Database", "Sources\Alza_WebAPI_Database\Alza_WebAPI_Database.csproj", "{47E2D4F5-9012-428B-9548-1A8E29963ED7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI_InMemoryDatabase", "Tests\Alza_WebAPI_InMemoryDatabase\Alza_WebAPI_InMemoryDatabase.csproj", "{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{47E2D4F5-9012-428B-9548-1A8E29963ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E2D4F5-9012-428B-9548-1A8E29963ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E2D4F5-9012-428B-9548-1A8E29963ED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
