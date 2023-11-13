@@ -8,16 +8,16 @@ namespace Alza_WebAPI_InMemoryDatabase
     /// <summary>
     /// AlzaContextInMemory.
     /// </summary>
-    public class InMemoryAlzaContext : AlzaContext
+    public class InMemoryTestAlzaContext : AlzaContext
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InMemoryAlzaContext"/> class.
+        /// Initializes a new instance of the <see cref="InMemoryTestAlzaContext"/> class.
         /// </summary>
         /// <param name="options">DbContextOptions.</param>
-        public InMemoryAlzaContext(DbContextOptions<InMemoryAlzaContext> options) : base(options) { }
+        public InMemoryTestAlzaContext(DbContextOptions<InMemoryTestAlzaContext> options) : base(options) { }
 
         /// <summary>
-        /// 
+        /// Seeding InMemoryTestAlzaContext dbContext with data for unit tests.
         /// </summary>
         /// <param name="modelBuilder">ModelBuilder.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)

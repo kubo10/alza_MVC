@@ -1,6 +1,4 @@
-﻿using Alza_WebAPI_Database;
-using Alza_WebAPI_InMemoryDatabase.DatabaseSeed;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Alza_WebAPI_InMemoryDatabase
 {
@@ -12,7 +10,7 @@ namespace Alza_WebAPI_InMemoryDatabase
         /// <summary>
         /// InMemoryAlzaContext.
         /// </summary>
-        protected InMemoryAlzaContext DbContext { get; private set; } = default!;
+        protected InMemoryTestAlzaContext DbContext { get; private set; } = default!;
 
         /// <summary>
         /// DbGuid.
@@ -20,17 +18,11 @@ namespace Alza_WebAPI_InMemoryDatabase
         protected Guid DbGuid { get; } = Guid.NewGuid();
 
         /// <summary>
-        /// InMemoryDatabaseSeed.
-        /// </summary>
-        private InMemoryDatabaseSeed InMemoryDatabaseSeed { get; set; } = default!;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="InMemoryTestDatabase"/> class.
         /// </summary>
         public InMemoryTestDatabase()
         {
             Init();
-            InMemoryDatabaseSeed = new InMemoryDatabaseSeed(DbContext);
         }
 
         /// <summary>
@@ -38,18 +30,10 @@ namespace Alza_WebAPI_InMemoryDatabase
         /// </summary>
         private void Init()
         {
-            var options = new DbContextOptionsBuilder<InMemoryAlzaContext>().UseInMemoryDatabase(databaseName: DbGuid.ToString()).Options;
+            var options = new DbContextOptionsBuilder<InMemoryTestAlzaContext>().UseInMemoryDatabase(databaseName: DbGuid.ToString()).Options;
 
-            DbContext = new InMemoryAlzaContext(options);
+            DbContext = new InMemoryTestAlzaContext(options);
             DbContext.Database.EnsureCreated();
-        }
-        /// <summary>
-        /// Seed Database
-        /// </summary>
-        /// <returns>Return seeded DB</returns>
-        public async Task SeedDatabase()
-        {
-            await InMemoryDatabaseSeed.SeedDatabase();
         }
     }
 }
