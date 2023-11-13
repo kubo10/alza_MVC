@@ -14,7 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alza_WebAPI_Database", "Sources\Alza_WebAPI_Database\Alza_WebAPI_Database.csproj", "{47E2D4F5-9012-428B-9548-1A8E29963ED7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI_InMemoryDatabase", "Tests\Alza_WebAPI_InMemoryDatabase\Alza_WebAPI_InMemoryDatabase.csproj", "{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alza_WebAPI_InMemoryDatabase", "Tests\Alza_WebAPI_InMemoryDatabase\Alza_WebAPI_InMemoryDatabase.csproj", "{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI_Domain", "Sources\Alza_WebAPI_Domain\Alza_WebAPI_Domain.csproj", "{F252BFFA-1C8A-4A67-91AF-3683D29E959B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alza_WebAPI_Domain_Abstraction", "Sources\Alza_WebAPI_Domain_Abstraction\Alza_WebAPI_Domain_Abstraction.csproj", "{E65E8AAE-5BDD-4BF4-B7CF-3992727410CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF4D97E3-EE65-4326-952A-1E2B1A6F20AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F252BFFA-1C8A-4A67-91AF-3683D29E959B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F252BFFA-1C8A-4A67-91AF-3683D29E959B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F252BFFA-1C8A-4A67-91AF-3683D29E959B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F252BFFA-1C8A-4A67-91AF-3683D29E959B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65E8AAE-5BDD-4BF4-B7CF-3992727410CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65E8AAE-5BDD-4BF4-B7CF-3992727410CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65E8AAE-5BDD-4BF4-B7CF-3992727410CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65E8AAE-5BDD-4BF4-B7CF-3992727410CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

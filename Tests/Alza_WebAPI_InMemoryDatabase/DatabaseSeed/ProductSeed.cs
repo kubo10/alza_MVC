@@ -13,11 +13,19 @@ namespace Alza_WebAPI_InMemoryDatabase.DatabaseSeed
     {
         private readonly AlzaContext DbContext;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductSeed"/> class.
+        /// </summary>
+        /// <param name="dbcontext">Dbcontext</param>
         public ProductSeed(AlzaContext dbcontext)
         {
             DbContext = dbcontext;
         }
 
+        /// <summary>
+        /// Seeding product.
+        /// </summary>
+        /// <returns>Seeded database.</returns>
         public async Task SeedDatabase()
         {
             DbContext.AddRange(new[]

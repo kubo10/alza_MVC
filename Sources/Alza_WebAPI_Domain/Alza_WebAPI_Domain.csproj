@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Alza_WebAPI_Database\Alza_WebAPI_Database.csproj" />
+    <ProjectReference Include="..\Alza_WebAPI_Domain_Abstraction\Alza_WebAPI_Domain_Abstraction.csproj" />
+  </ItemGroup>
+
+</Project>
