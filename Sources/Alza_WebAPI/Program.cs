@@ -1,7 +1,7 @@
-using Alza_WebAPI.Domain;
-using Alza_WebAPI.Domain.Interface;
 using Alza_WebAPI.FilterExtension;
 using Alza_WebAPI_Database;
+using Alza_WebAPI_Domain.Domain;
+using Alza_WebAPI_Domain_Abstraction.Interface;
 using Alza_WebAPI_InMemoryDatabase;
 using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ namespace Alza_WebAPI
     {
         internal static IConfiguration Configuration { get; private set; } = default!;
 
-        private static async Task Main(string[] args)
+        private static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
             Configuration = builder.Configuration;
@@ -62,7 +62,7 @@ namespace Alza_WebAPI
 
             app.MapControllers();
 
-            await app.SeedDatabaseContext();
+            app.EnsureDatabaseIsCreated();
 
             app.Run();
 
@@ -87,22 +87,16 @@ namespace Alza_WebAPI
         }
 
         /// <summary>
-        /// Seeding InMemoryDatabase with data.
+        /// Ensure that database for context is created.
         /// </summary>
         /// <param name="webApplication">WebApplication.</param>
-        /// <returns>Seeded InMemoryDatabase</returns>
+        /// <returns>Ensure database is created.</returns>
         /// <exception cref="ArgumentNullException">DbContext was not created</exception>
-        private static async Task<WebApplication> SeedDatabaseContext(this WebApplication webApplication)
+        private static WebApplication EnsureDatabaseIsCreated(this WebApplication webApplication)
         {
             using var scope = webApplication.Services.CreateScope();
             var context = scope.ServiceProvider.GetService<AlzaContext>() ?? throw new ArgumentNullException("DbContext was not created");
             context.Database.EnsureCreated();
-
-            if (context.Database.IsInMemory())
-            {
-                var databaseSeed = new InMemoryDatabaseSeed(context);
-                await databaseSeed.SeedDatabase().ConfigureAwait(false);
-            }
 
             return webApplication;
         }

@@ -1,41 +1,39 @@
-﻿using Alza_WebAPI_Database;
-using Alza_WebAPI_InMemoryDatabase.DatabaseSeed;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Alza_WebAPI_InMemoryDatabase
 {
+    /// <summary>
+    /// InMemoryTestDatabase.
+    /// </summary>
     public class InMemoryTestDatabase
     {
-        protected AlzaContext DbContext { get; private set; } = default!;
-        protected Guid DbGuid { get; } = Guid.NewGuid();
-        private InMemoryDatabaseSeed InMemoryDatabaseSeed { get; set; } = default!;
+        /// <summary>
+        /// InMemoryAlzaContext.
+        /// </summary>
+        protected InMemoryTestAlzaContext DbContext { get; private set; } = default!;
 
+        /// <summary>
+        /// DbGuid.
+        /// </summary>
+        protected Guid DbGuid { get; } = Guid.NewGuid();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InMemoryTestDatabase"/> class.
+        /// </summary>
         public InMemoryTestDatabase()
         {
             Init();
-            InMemoryDatabaseSeed = new InMemoryDatabaseSeed(DbContext);
-            //ProductSeed = new ProductSeed(DbContext);
         }
 
-        public InMemoryTestDatabase(AlzaContext dbContext)
-        {
-            DbContext = dbContext;
-            InMemoryDatabaseSeed = new InMemoryDatabaseSeed(DbContext);
-            //ProductSeed = new ProductSeed(DbContext);
-        }
-
+        /// <summary>
+        /// Initialization of in memory database
+        /// </summary>
         private void Init()
         {
-            var options = new DbContextOptionsBuilder<AlzaContext>().UseInMemoryDatabase(databaseName: DbGuid.ToString()).Options;
+            var options = new DbContextOptionsBuilder<InMemoryTestAlzaContext>().UseInMemoryDatabase(databaseName: DbGuid.ToString()).Options;
 
-            DbContext = new AlzaContext(options);
+            DbContext = new InMemoryTestAlzaContext(options);
             DbContext.Database.EnsureCreated();
-        }
-
-        public async Task SeedDatabase()
-        {
-            await InMemoryDatabaseSeed.SeedDatabase();
-            //await ProductSeed.SeedDatabase().ConfigureAwait(false);
         }
     }
 }
