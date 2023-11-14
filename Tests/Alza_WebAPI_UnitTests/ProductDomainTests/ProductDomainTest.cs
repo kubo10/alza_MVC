@@ -2,25 +2,39 @@
 using Alza_WebAPI_InMemoryDatabase;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alza_WebAPI_UnitTests.ProductDomainTests
 {
+    /// <summary>
+    /// ProductDomain unit tests.
+    /// </summary>
     [TestClass]
     public class ProductDomainTest : InMemoryTestDatabase
     {
+        /// <summary>
+        /// ProductDomain class.
+        /// </summary>
         private ProductDomain _productDomain = default!;
+        
+        /// <summary>
+        /// Description const with 4000 characters
+        /// </summary>
         private const string descriptionWithMoreThan4000Char = "vtrqmvjpfyxmonigahlhzdubhtnevcwveinyxqpebybpnplujdiyngbgluhxvvguplyvykiwtgkeguxlwtcndblwpzseodrmkhaljkknasguwlaasknpnmiqmtdjalhxpzujybwbduputqygiurlpvoyyzobwmbcrztzehgabdjuflvtdrzaevhlenmjzysufbmbgjcfctszukfplxpzpshblqkazdvdcqqbwaamnnvrfrwyztoszsqrdcwueupvvdisaimtbfyyqvajsyydjrujzgivtodkywbevcrlyllikthoflubmnvypateqppxtwlwfqczlhrxlfxggmkarrifbiasbqomeaihbfunkfgpypthhvxmeosljuoahpdsgmwnlzbmliwwgxdvlqbnqlpkhxusqplubahuyerswnttsyyuwzachikqvpwmvdmvsvajntyjmcuvmbvqlceddppzcfwdkbphlzlgycwvypteeopjamnggcftxgmngmhlvxsxnwystbqvyuqjkcdgbnyxaohjuappcgctcfkqqadtxzgrfejqvrbbcfgonmxoeeavaezricgrerndhrnsekhwnmymndhndbifflgnyrepxxqfssgqnxlagqzflckeccfbooplimlpbphsxjqpxyjjlewmeezoszqwuewclhmvdfrenvhabuvdpuvdwrzahvyhggleenggtzoufguydywcndjzoqjqvmacnumpzygblaqkkulnhbupjfivjvueydggurovlnipksiereiygxqwinbdzvzfwuacotukfydhuhthzyoltadoqobxjlibeqpwovkytfuabmoqkklsmezcoigsutalyqszeuxzqvxghycxdprvjubbobnrgsynokhscrdzlcizycgndagbddcahcmlqqvdakyejorvsdbgybtnmkczdqpdhsnngohapsyoopbkwzfusgqdzlakcdqnmjcrcwtcrcamhvkmbiyficnmsawcnwetwtasjpqptoppyiqjwtemnlfbpahbmzpywsaexigvjwoonvwuvhmhzvivdafibduqzowcqhlfnftsjdoogjqeabmhsapruhxsstkeopowhqsvoifdmtrfjjdpagdnifsydtczosymclekpkokfshyxobgmxehuhrkaljlvvceddmazsjrreriimbqopjkdqsgsddetlcnmfegszcypqytknxxqleauqwrfdrlasfggazmvewgytjwgavqvfawcfqfcqojyqjqichbleyeuygpvvykkcctwknryhdeyfsyukqaldiwmppnompbhfclmrglrlhljhdtlhybvbnxqgthdnqnsakhdbyaxiberaofvyjdxpafqhricdjpklzqjxclwbzgewbhcrlyvhvqohjogpyuzuxsbgtfazlccjijbdauktrgoiujrufdhqtqndmzohwunhhndwlhkzgzlbzqlxpryijtfwxceubkrhkfshkpbnvmbomdzinpryiakkbrlzwyvmjmwuqtkmyjahclimudryshdrwnfjkayrbeaemhmpkrwkbxdcuijlvxamgytkyqrfcdxdidcsejytygfqjhxendbjpbtltqhizullxeyrldsuvgkwalkljzsndmobrlbqsmxnrmmjlutydykvroxqjwirqjiccyudkletqdgbihrnxelscybzptujvmhehhtdznjciwjtqjrleqrmokrdzxjpkntdoimomzfdnptefdamjdrdefsutjluphweyccdvaclaawkwxsabdajykgbtfnzqbczvbgzqmwxpehuokzhnwggnculjueuzjfnomvsloclaatwvufdcniubcqgqicwrrzxabhznsfyuznatlwqlvlrmlgwcjkcwkgoshirnbzifrhxhjjpmagrppvdsdrtuodwkzxlpfwkxreepstspozogahsrfjozfooujoldsulmfkyhkgihkhaqckwrnvufpzvgkoioqpugtvkehkmkssiyebgkwmaczryerzifrwfhxrekalpqjuoiwwnlofuappesjumxqqyjyfmwpqyqtqerowabkasjwhjmaeqcturjestpcmdddoytyofzkkruupodcugrshquuzxfpclkzzjghlzqhakesxrdxyirvarurzmckhlgogoynjuuldqjajvpvkhxgvlrtlamistzphvvkvudaaxzprdkrxblgfaqsyforkfthzlrcgxnkybnnwfpruijbzrvemrpxywwzufqyiyjlqflsrxfdfdspiykvqkssbpaoaiufomsgjutzxomtsdgqepvsafhvufcmwtlrqugbmbmekjpuxpjrmiczxmtphrszebzhlpvgemahwudktmxugkswfejnvcnawzhddtsjsfnlcwnyyusmlbvbkxbcfjtbrxtjwdovydmdqwhormbvpgcjoqatjnekgqfdtpoemdeophxuxnxhurdreiqzkijmunsjlqvwebshwofsdfsapsqsvtqbcdjcmiawxwrnysqufxojrtolyrinwavlgxfyaouofnwjamhvxqsekekxkougagjujmldqzdtcqjgeayecipzdspqipmuysmalobslhwrnfvioxexeyhnmvyetkumtzmkoglpjoizspxupmvestkyvvelreizktspxnedlrvjoiomikagmnvlracujdxurrnvbgtknmpfjrxctirtscwhkntnpdtmfnemllmgjuindenbrcequzxpthdpxkihhmaodvwttwemfrkikcanqibyazbgjiuevrplbibjvfgzruxremucemiesubipsymramfawjfajiqxcwgcehcnoxpbzcvhpxrpxgiyohdtgtcgnjtyscbbqiajqiftlsqznzsgmzjrrsqehgzjfrqjrfhtwkgvvmhxhmygbcfcxgufyeeohxfyhzdydlehoxxwatfzjdthspnctdvydftntemfslkibiecvcqyscokuntbenamjfwqroimvhniygrzzfcpbqxpfljrkzumfjrziflvfaxjncgmpxsxmmsguoveihwsifiigdpvzqglcfltvrvdiofbhybwgcxubutthnfeqaxfrmkuvmffdzwvsybjragnftzwzufclbpqyruxypgqjruttrifomhgaoqbzytcrcuzfacyqvsurmalhukyyebzzhubgevlhswgzqvwabtmfjkyesqsiqvypkmhflsqwzoeqpozsebmtaqguggqefprggvspyfqqtemwyhyritlnmcgsvlhpmwlosoalmyyqfqothdzbhnchaklhzxmbgmavhxrvfsrhxgbtzrxltgnsemptsvhpnhncmuqnhvuwptrscdttcwubehtyjiplkqdvlbuhuncpwhscirlyzvcufgeytnggbexvimqbpdlltcsqgxnhnwgaisxklcvssnfbfxjlixqqimolaivsgafwxwtedlyxpvhlovstudkahjudjzicztfcltngiimfadjiziugccmrfipkgwgecwzskimtvpqcyassnpbnvtjfmwdzetabmklpkhixcdzjyzatfizuwkeukrdefdznzybdmeocijoypzmrrjusmwonshlqnslpqalvhisrdwcaawawxvcrapzwmsbxgtknsbocpjaodlplkdwotkkjxhvwtaaborgpjsyyjcmandfdbqckjuzwbsptnrljgpnscdwyqlscptcwmjvwfvzocrortpiccwnnzrpernuhpwrzturwjcjzualwtqgskqslmobpmbxtuzknbukeiwrfzpitgemutjpnsdipynaollmtlodokafenbitmeapxlwdlpnrgfixivcqcoylxbkqcswrfdqzuqapshtknzfcferlytmvkseqerlefnshwnddsjjrcwgcjjghydprbrgsblaxasrkrshxdogbbrzdltnakkymffjmonhbmmo";
 
+        /// <summary>
+        /// Test initialization.
+        /// </summary>
         [TestInitialize]
-        public void Init()
+        public void Initialization()
         {
             _productDomain = new ProductDomain(DbContext);
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            DbContext.Dispose();
         }
 
         [TestMethod]
@@ -33,7 +47,6 @@ namespace Alza_WebAPI_UnitTests.ProductDomainTests
             var product = await _productDomain.GetProductAsync(firstProduct.Id).ConfigureAwait(false);
 
             // Assert
-
             product.Should().NotBe(null);
             product?.Id.Should().Be(firstProduct.Id);
             product?.Name.Should().Be(firstProduct.Name);
@@ -103,7 +116,7 @@ namespace Alza_WebAPI_UnitTests.ProductDomainTests
         }
 
         [TestMethod]
-        public async Task UpdateProductDescriptionAsync_Ar_Success()
+        public async Task UpdateProductDescriptionAsync_Ar_ASuccess()
         {
 
             // Arrange

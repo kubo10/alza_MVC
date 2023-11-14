@@ -7,8 +7,16 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 namespace Alza_WebAPI.FilterExtension
 {
     //Based on : https://cloudkasten.net/how-to-multiple-api-versions-in-one-codebase/
+    /// <summary>
+    /// ApiDefaultValues.
+    /// </summary>
     public class ApiDefaultValues : IOperationFilter
     {
+        /// <summary>
+        /// Swashbuckle operation filter 
+        /// </summary>
+        /// <param name="operation">OpenApiOperation.</param>
+        /// <param name="context"></param>
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             var apiDescriptionModel = context.ApiDescription;

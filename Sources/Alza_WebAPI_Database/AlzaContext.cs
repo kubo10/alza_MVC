@@ -1,17 +1,36 @@
 ﻿using Alza_WebAPI_Database.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Diagnostics.SymbolStore;
 
 namespace Alza_WebAPI_Database
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AlzaContext : DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlzaContext"/> class.
+        /// </summary>
         public AlzaContext()
         {
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlzaContext"/> class.
+        /// </summary>
+        /// <param name="options">DbContextOptions.</param>
         public AlzaContext(DbContextOptions<AlzaContext> options) : base(options) { }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlzaContext"/> class.
+        /// </summary>
+        /// <param name="options">DbContextOptions.</param>
         protected AlzaContext(DbContextOptions options) : base(options) { }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
