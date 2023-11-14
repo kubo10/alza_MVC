@@ -35,7 +35,7 @@ namespace Alza_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get 
+        /// Get all products
         /// </summary>
         /// <returns>Return all products in database.</returns>
         [HttpGet("products")]
