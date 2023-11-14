@@ -94,7 +94,8 @@ namespace Alza_WebAPI
         private static WebApplication EnsureDatabaseIsCreated(this WebApplication webApplication)
         {
             using var scope = webApplication.Services.CreateScope();
-            var context = scope.ServiceProvider.GetService<AlzaContext>() ?? throw new ArgumentNullException("DbContext was not created");
+            var context = scope.ServiceProvider.GetService<AlzaContext>()
+                ?? throw new ArgumentNullException("DbContext was not created", nameof(AlzaContext));
             context.Database.EnsureCreated();
 
             return webApplication;

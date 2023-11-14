@@ -25,20 +25,21 @@ namespace Alza_WebAPI.FilterExtension
             {
                 return;
             }
+
             foreach (var parameter in operation.Parameters)
             {
                 var description = apiDescriptionModel.ParameterDescriptions.First(param => param.Name == parameter.Name);
 
-                if (parameter.Description == null)
-                {
-                    parameter.Description = description.ModelMetadata?.Description;
-                }
+                parameter.Description ??= description.ModelMetadata?.Description;
                 if (parameter.Schema.Default != null)
                 {
                     parameter.Schema.Default = new OpenApiString(description?.DefaultValue?.ToString());
                 }
 
-                parameter.Required |= description.IsRequired;
+                if (description != null)
+                {
+                    parameter.Required |= description.IsRequired;
+                }
             }
         }
     }
