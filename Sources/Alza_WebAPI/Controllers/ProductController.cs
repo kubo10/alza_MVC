@@ -13,11 +13,21 @@ namespace Alza_WebAPI.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class ProductController : Controller
     {
+        /// <summary>
+        /// IProductDomain.
+        /// </summary>
         private readonly IProductDomain _productDomain;
 
+        /// <summary>
+        /// ILogger.
+        /// </summary>
         private readonly ILogger<ProductController> _logger;
 
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductController"/> class.
+        /// </summary>
+        /// <param name="productDomain">IProductDomain.</param>
+        /// <param name="logger">ILogger.</param>
         public ProductController(IProductDomain productDomain, ILogger<ProductController> logger)
         {
             _productDomain = productDomain;
@@ -25,9 +35,9 @@ namespace Alza_WebAPI.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Get 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return all products in database.</returns>
         [HttpGet("products")]
         [MapToApiVersion("1")]
         [ProducesResponseType(typeof(IEnumerable<Product>), StatusCodes.Status200OK)]
@@ -45,10 +55,10 @@ namespace Alza_WebAPI.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Get products by pages. Page size is 10.
         /// </summary>
-        /// <param name="page"></param>
-        /// <returns></returns>
+        /// <param name="page">Page number</param>
+        /// <returns>Return products by pages. </returns>
         [HttpGet("products/{page}")]
         [MapToApiVersion("2")]
         [ProducesResponseType(typeof(IEnumerable<ProductPagination>), StatusCodes.Status200OK)]
@@ -67,10 +77,10 @@ namespace Alza_WebAPI.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Get product by product Id.
         /// </summary>
-        /// <param name="productId"></param>
-        /// <returns></returns>
+        /// <param name="productId">Id of product.</param>
+        /// <returns>Returns specific product if exist, else return not found.</returns>
         [HttpGet]
         [MapToApiVersion("1"), MapToApiVersion("2")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
@@ -94,11 +104,11 @@ namespace Alza_WebAPI.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Update product description.
         /// </summary>
-        /// <param name="productId"></param>
-        /// <param name="description"></param>
-        /// <returns></returns>
+        /// <param name="productId">Id of product.</param>
+        /// <param name="description">Product description.</param>
+        /// <returns>Returns specific product with updated description if exist, else return not found</returns>
         [HttpPut]
         [MapToApiVersion("1"), MapToApiVersion("2")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]

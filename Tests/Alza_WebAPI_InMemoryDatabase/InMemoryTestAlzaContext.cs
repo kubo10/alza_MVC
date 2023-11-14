@@ -26,7 +26,7 @@ namespace Alza_WebAPI_InMemoryDatabase
                         new Product
                         {
                             Id = Guid.NewGuid(),
-                            Name = "Some pretty nice flowers",
+                            Name = "Some pretty nice rainbow flowers",
                             ImgUri = "https://cdn.firstcry.com/education/2022/12/12101916/Flower-Names-In-English-For-Kids.jpg",
                             Price = 10002.22M,
                             Description = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque ipsum.

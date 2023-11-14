@@ -2,12 +2,12 @@
 using Alza_WebAPI_Database.Models;
 using Alza_WebAPI_Domain_Abstraction.Interface;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-using System.Formats.Asn1;
-using System.Linq;
 
 namespace Alza_WebAPI_Domain.Domain
 {
+    /// <summary>
+    /// ProductDomain class.
+    /// </summary>
     public class ProductDomain : IProductDomain
     {
         /// <summary>
@@ -16,9 +16,9 @@ namespace Alza_WebAPI_Domain.Domain
         private readonly AlzaContext _dbcontext = default!;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ProductDomain"/> class.
         /// </summary>
-        /// <param name="dbcontext"></param>
+        /// <param name="dbcontext">DbContext.</param>
         public ProductDomain(AlzaContext dbcontext)
         {
             _dbcontext = dbcontext;
