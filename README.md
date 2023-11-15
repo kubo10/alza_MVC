@@ -1,4 +1,5 @@
 
+
 # Alza WebAPI
 
 This is simple WebAPI project to demonstrate my knowledge of C# + .NET. Project is based on .NET 6 (last LTS version). 
@@ -8,13 +9,17 @@ Project is using :
 - .NET 6
 - Entity framework core (ORM)
 - Swagger
+- .NET API versioning
+- Unit Tests (MSTest)
 
 
 ## Prerequisites
 
-```properties
-Visual studio 
 ```
+Visual studio
+MSSQL server (If you want to connect application to persistent database)
+```
+
 
 ## Usage
 
@@ -26,9 +31,9 @@ When we have our repo cloned we can open our solution(**Alza_MVC.sln**) by VS.
 We have 2 options how to run our app. This options are set in launchSettings.json
 
 
-1.**Alza_WebAPI_SQL_Server** - This options works with database on SQL server. Connectionstring needs to be set in **appsettings.Development.json**.
+1.**Alza_WebAPI_SQL_Server** - This options works with database on MSSQL server. Connectionstring needs to be set in **appsettings.Development.json**. 
 
-2.**Alza_WebAPI_InMemoryDatabase** - This options is based on **InMemoryDatabase** so we not needed Connectionstring.
+2.**Alza_WebAPI_InMemoryDatabase** - This options is based on **InMemoryDatabase** so we not needed set Connectionstring.
 
 ## API Reference
 
@@ -41,7 +46,7 @@ We have 2 options how to run our app. This options are set in launchSettings.jso
 #### Get all items with pagination (page size is set to 10)
 
 ```http
-  GET /api/v1/Product/products/{page}
+  GET /api/v2/Product/products/{page}
 ```
 
 | Parameter | Type     | Description                |
@@ -61,7 +66,6 @@ We have 2 options how to run our app. This options are set in launchSettings.jso
 | `productId`      | `Guid` | **Required**. Id of product to fetch |
 
 
-Takes two numbers and returns the sum.
 
 #### Update product description
 
@@ -73,4 +77,4 @@ Takes two numbers and returns the sum.
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `productId`      | `Guid` | **Required**. Id of product to update |
-| `description`      | `string` | Description |
+| `description`      | `string` | Product description |
