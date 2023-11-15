@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Alza_WebAPI.Controllers
 {
+    /// <summary>
+    /// ProductController.
+    /// </summary>
     [ApiController]
     [ApiVersion("1")]
     [ApiVersion("2")]
@@ -35,7 +38,7 @@ namespace Alza_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get 
+        /// Get all products
         /// </summary>
         /// <returns>Return all products in database.</returns>
         [HttpGet("products")]

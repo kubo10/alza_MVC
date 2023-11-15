@@ -37,6 +37,9 @@ namespace Alza_WebAPI
             builder.Services.AddSwaggerGen(options =>
             {
                 options.OperationFilter<ApiDefaultValues>();
+
+                var filePath = Path.Combine(AppContext.BaseDirectory, "Alza_WebAPI.xml");
+                options.IncludeXmlComments(filePath);
             });
             builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureApiDocumentationOptions>();
             builder.Services.AddDatabaseContext();
