@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Alza_WebAPI.Controllers
 {
+    /// <summary>
+    /// ProductController.
+    /// </summary>
     [ApiController]
     [ApiVersion("1")]
     [ApiVersion("2")]
